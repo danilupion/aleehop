@@ -9,9 +9,9 @@ interface WindowWithSpecchRecognition extends Window {
 
 export const say = (text: string): void => {
   const voices = synth.getVoices().filter((v) => v.lang.match(/es-/g));
-
+  
   const utterance = new SpeechSynthesisUtterance(`/${text.toLowerCase()}/`);
-  utterance.rate = 0.8;
+  utterance.rate = 0.7;
   utterance.lang = 'es-ES';
   utterance.voice = voices[3];
   synth.speak(utterance);

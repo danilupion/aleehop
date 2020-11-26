@@ -17,7 +17,7 @@ const Menu = (): JSX.Element => {
     <>
       <IconButton
         className={classnames('menu-icon', { active: menuVisible })}
-        icon="fas fa-bars"
+        icon={menuVisible ? 'fas fa-times' : 'fas fa-bars'}
         onClick={onToggleMenu}
       />
       {menuVisible && (

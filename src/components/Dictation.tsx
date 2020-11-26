@@ -35,7 +35,13 @@ const Dictation = ({ items }: DictationProps): JSX.Element => {
   return (
     <div className="dictation">
       <div className="input">
-        <input type="text" value={input} onChange={onInputChange} />{' '}
+        <input
+          type="text"
+          value={input}
+          tabIndex={0}
+          onChange={onInputChange}
+          onBlur={(ev) => ev.target.focus()}
+        />{' '}
         <IconButton className="check" icon="fas fa-question" onClick={onCheck} />
       </div>
       <div className="actions">
