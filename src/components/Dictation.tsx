@@ -41,6 +41,11 @@ const Dictation = ({ items }: DictationProps): JSX.Element => {
           tabIndex={0}
           onChange={onInputChange}
           onBlur={(ev) => ev.target.focus()}
+          onKeyPress={(ev) => {
+            if (ev.key === 'Enter') {
+              onCheck();
+            }
+          }}
         />{' '}
         <IconButton className="check" icon="fas fa-question" onClick={onCheck} />
       </div>
