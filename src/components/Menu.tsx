@@ -35,12 +35,28 @@ const Menu = (): JSX.Element => {
                 </Link>
                 {' | '}
                 <Link to={`/dictation/word/${index + 1}/false`} onClick={onToggleMenu}>
-                  Dictado
+                  Dictado Palabras
                 </Link>
+                {index > 0 && (
+                  <>
+                    {' | '}
+                    <Link to={`/dictation/phrase/${index + 1}/false`} onClick={onToggleMenu}>
+                      Dictado Frases
+                    </Link>
+                  </>
+                )}
                 {' | '}
                 <Link to={`/reading/word/${index + 1}/false`} onClick={onToggleMenu}>
                   Lectura
                 </Link>
+                {index > 0 && (
+                  <>
+                    {' | '}
+                    <Link to={`/reading/phrase/${index + 1}/false`} onClick={onToggleMenu}>
+                      Lectura Frases
+                    </Link>
+                  </>
+                )}
               </div>
               {index > 0 && (
                 <div>
@@ -54,11 +70,19 @@ const Menu = (): JSX.Element => {
                   </Link>
                   {' | '}
                   <Link to={`/dictation/word/${index + 1}/true`} onClick={onToggleMenu}>
-                    Dictado
+                    Dictado Palabras
+                  </Link>
+                  {' | '}
+                  <Link to={`/dictation/phrase/${index + 1}/true`} onClick={onToggleMenu}>
+                    Dictado Frases
                   </Link>
                   {' | '}
                   <Link to={`/reading/word/${index + 1}/true`} onClick={onToggleMenu}>
-                    Lectura
+                    Lectura Palabras
+                  </Link>
+                  {' | '}
+                  <Link to={`/reading/phrase/${index + 1}/true`} onClick={onToggleMenu}>
+                    Lectura Frases
                   </Link>
                 </div>
               )}

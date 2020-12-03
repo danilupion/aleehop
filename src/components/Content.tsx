@@ -11,13 +11,25 @@ import Reading from './Reading';
 enum Type {
   Syllable = 'syllable',
   Word = 'word',
+  Phrase = 'phrase',
 }
 
 const getItems = (index: number, type: Type, backwards: boolean, take?: number) => {
   const chosenChallenges = challenges.slice(backwards ? 0 : index - 1, index);
 
   const items = chosenChallenges
-    .map((c) => (type === Type.Syllable ? c.syllables : c.words))
+    .map((c) => {
+      switch (type) {
+        case Type.Syllable:
+          return c.syllables;
+        case Type.Word:
+          return c.words;
+        case Type.Phrase:
+          return c.phrases;
+        default:
+          return [];
+      }
+    })
     .flat();
 
   if (take) {

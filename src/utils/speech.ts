@@ -9,7 +9,7 @@ interface WindowWithSpecchRecognition extends Window {
 
 export const say = (text: string): void => {
   const voices = synth.getVoices().filter((v) => v.lang.match(/es-/g));
-  
+
   const utterance = new SpeechSynthesisUtterance(`/${text.toLowerCase()}/`);
   utterance.rate = 0.7;
   utterance.lang = 'es-ES';
@@ -32,12 +32,13 @@ export const recognize = (dict: string[], lang = 'es-ES'): Promise<string> => {
 
   return new Promise((acc, rej) => {
     let result = '';
-    recognition.addEventListener('result', (a: SpeechRecognitionEvent) => {
-      result = a.results[0][0].transcript;
+    recognition.addEventListener('result', (ev: SpeechRecognitionEvent) => {
+      console.log(ev.results[0][0].transcript);
+      result = ev.results[0][0].transcript;
     });
 
-    recognition.addEventListener('error', (a: ErrorEvent) => {
-      rej(a);
+    recognition.addEventListener('error', (ev: ErrorEvent) => {
+      rej(ev);
     });
 
     recognition.addEventListener('end', () => {
