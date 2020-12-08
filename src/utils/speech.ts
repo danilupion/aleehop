@@ -10,7 +10,7 @@ interface WindowWithSpecchRecognition extends Window {
 export const say = (text: string): void => {
   const voices = synth.getVoices().filter((v) => v.lang.match(/es-/g));
 
-  const utterance = new SpeechSynthesisUtterance(`/${text.toLowerCase()}/`);
+  const utterance = new SpeechSynthesisUtterance(navigator && navigator.platform === 'Win32' ? text.toLowerCase() : `/${text.toLowerCase()}/`);
   utterance.rate = 0.7;
   utterance.lang = 'es-ES';
   utterance.voice = voices[3];
