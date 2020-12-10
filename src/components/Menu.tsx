@@ -22,72 +22,74 @@ const Menu = (): JSX.Element => {
       />
       {menuVisible && (
         <div className="menu">
-          {challenges.map((c, index) => (
-            <div key={index}>
-              <div>
-                <div>RETO {index + 1}</div>
-                <Link to={`/bingo/syllable/${index + 1}/false`} onClick={onToggleMenu}>
-                  Bingo Sílabas
-                </Link>
-                {' | '}
-                <Link to={`/bingo/word/${index + 1}/false`} onClick={onToggleMenu}>
-                  Bingo Palabras
-                </Link>
-                {' | '}
-                <Link to={`/dictation/word/${index + 1}/false`} onClick={onToggleMenu}>
-                  Dictado Palabras
-                </Link>
-                {index > 0 && (
-                  <>
-                    {' | '}
-                    <Link to={`/dictation/phrase/${index + 1}/false`} onClick={onToggleMenu}>
-                      Dictado Frases
-                    </Link>
-                  </>
-                )}
-                {' | '}
-                <Link to={`/reading/word/${index + 1}/false`} onClick={onToggleMenu}>
-                  Lectura
-                </Link>
-                {index > 0 && (
-                  <>
-                    {' | '}
-                    <Link to={`/reading/phrase/${index + 1}/false`} onClick={onToggleMenu}>
-                      Lectura Frases
-                    </Link>
-                  </>
-                )}
-              </div>
-              {index > 0 && (
+          <div className="menu-content">
+            {challenges.map((c, index) => (
+              <div key={index}>
                 <div>
-                  <div>RETO 1..{index + 1}</div>
-                  <Link to={`/bingo/syllable/${index + 1}/true`} onClick={onToggleMenu}>
+                  <div>RETO {index + 1}</div>
+                  <Link to={`/bingo/syllable/${index + 1}/false`} onClick={onToggleMenu}>
                     Bingo Sílabas
                   </Link>
                   {' | '}
-                  <Link to={`/bingo/word/${index + 1}/true`} onClick={onToggleMenu}>
+                  <Link to={`/bingo/word/${index + 1}/false`} onClick={onToggleMenu}>
                     Bingo Palabras
                   </Link>
                   {' | '}
-                  <Link to={`/dictation/word/${index + 1}/true`} onClick={onToggleMenu}>
+                  <Link to={`/dictation/word/${index + 1}/false`} onClick={onToggleMenu}>
                     Dictado Palabras
                   </Link>
+                  {index > 0 && (
+                    <>
+                      {' | '}
+                      <Link to={`/dictation/phrase/${index + 1}/false`} onClick={onToggleMenu}>
+                        Dictado Frases
+                      </Link>
+                    </>
+                  )}
                   {' | '}
-                  <Link to={`/dictation/phrase/${index + 1}/true`} onClick={onToggleMenu}>
-                    Dictado Frases
+                  <Link to={`/reading/word/${index + 1}/false`} onClick={onToggleMenu}>
+                    Lectura
                   </Link>
-                  {' | '}
-                  <Link to={`/reading/word/${index + 1}/true`} onClick={onToggleMenu}>
-                    Lectura Palabras
-                  </Link>
-                  {' | '}
-                  <Link to={`/reading/phrase/${index + 1}/true`} onClick={onToggleMenu}>
-                    Lectura Frases
-                  </Link>
+                  {index > 0 && (
+                    <>
+                      {' | '}
+                      <Link to={`/reading/phrase/${index + 1}/false`} onClick={onToggleMenu}>
+                        Lectura Frases
+                      </Link>
+                    </>
+                  )}
                 </div>
-              )}
-            </div>
-          ))}
+                {index > 0 && (
+                  <div>
+                    <div>RETO 1..{index + 1}</div>
+                    <Link to={`/bingo/syllable/${index + 1}/true`} onClick={onToggleMenu}>
+                      Bingo Sílabas
+                    </Link>
+                    {' | '}
+                    <Link to={`/bingo/word/${index + 1}/true`} onClick={onToggleMenu}>
+                      Bingo Palabras
+                    </Link>
+                    {' | '}
+                    <Link to={`/dictation/word/${index + 1}/true`} onClick={onToggleMenu}>
+                      Dictado Palabras
+                    </Link>
+                    {' | '}
+                    <Link to={`/dictation/phrase/${index + 1}/true`} onClick={onToggleMenu}>
+                      Dictado Frases
+                    </Link>
+                    {' | '}
+                    <Link to={`/reading/word/${index + 1}/true`} onClick={onToggleMenu}>
+                      Lectura Palabras
+                    </Link>
+                    {' | '}
+                    <Link to={`/reading/phrase/${index + 1}/true`} onClick={onToggleMenu}>
+                      Lectura Frases
+                    </Link>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </>
