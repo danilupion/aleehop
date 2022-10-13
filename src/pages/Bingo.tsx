@@ -1,34 +1,29 @@
-import React, { useCallback, useRef } from 'react';
+import { useCallback } from 'react';
 
-import { random } from '../utils/array';
+import IconButton from '../components/IconButton';
+import Board from '../components/board/Board';
+import useAppState from '../hooks/useAppState';
 import { error, success } from '../utils/sounds';
 import { say } from '../utils/speech';
 
-import IconButton from './IconButton';
-import Board from './board/Board';
-
-interface BingoProps {
-  items: string[];
-}
-
-const Bingo = ({ items }: BingoProps): JSX.Element => {
-  const chosen = useRef(random(items));
+const Bingo = (): JSX.Element => {
+  const { items, chosen, chooseNext } = useAppState();
 
   const onItemClick = useCallback(
     async (item: string) => {
-      if (item === chosen.current) {
+      if (item === chosen) {
         await success();
-        chosen.current = random(items);
+        chooseNext();
       } else {
         await error();
       }
     },
-    [items],
+    [chooseNext, chosen],
   );
 
   const onSay = useCallback(() => {
-    say(chosen.current);
-  }, []);
+    say(chosen);
+  }, [chosen]);
 
   return (
     <div className="bingo">

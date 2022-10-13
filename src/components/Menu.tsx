@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import challenges from '../challenges';

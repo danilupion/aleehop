@@ -13,10 +13,14 @@
     "plugin:eslint-comments/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
+    "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:react/recommended",
+    "react-app",
+    "react-app/jest",
     "plugin:react-hooks/recommended",
-    "prettier/@typescript-eslint"
+    "plugin:react/jsx-runtime",
+    "prettier"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -24,7 +28,12 @@
   },
   "settings": {
     "import/resolver": {
-      "typescript": {}
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      },
+      "typescript": {
+        "project": "./tsconfig.json"
+      }
     },
     "react": {
       "version": "detect"
@@ -37,8 +46,18 @@
   },
   "plugins": ["@typescript-eslint", "jsx-a11y", "jest"],
   "rules": {
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    // "eslint-comments/disable-enable-pair": ["error", { "allowWholeFile": true }],
     "import/no-unresolved": ["error", {}],
-    "import/order": ["error", { "newlines-between": "always", "alphabetize": { "order": "asc" } }],
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc" },
+        "warnOnUnassignedImports": true
+      }
+    ],
     "sort-imports": [
       "error",
       {

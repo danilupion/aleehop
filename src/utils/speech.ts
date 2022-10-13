@@ -1,16 +1,11 @@
 const synth = window.speechSynthesis;
 
-interface WindowWithSpecchRecognition extends Window {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  webkitSpeechRecognition: any;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  webkitSpeechGrammarList: any;
-}
-
 export const say = (text: string): void => {
   const voices = synth.getVoices().filter((v) => v.lang.match(/es-/g));
 
-  const utterance = new SpeechSynthesisUtterance(navigator && navigator.platform === 'Win32' ? text.toLowerCase() : `/${text.toLowerCase()}/`);
+  const utterance = new SpeechSynthesisUtterance(
+    navigator && navigator.platform === 'Win32' ? text.toLowerCase() : `/${text.toLowerCase()}/`,
+  );
   utterance.rate = 0.7;
   utterance.lang = 'es-ES';
   utterance.voice = voices[3];
@@ -18,8 +13,15 @@ export const say = (text: string): void => {
 };
 
 export const recognize = (dict: string[], lang = 'es-ES'): Promise<string> => {
-  const recognition = new ((window as unknown) as WindowWithSpecchRecognition).webkitSpeechRecognition();
-  const speechRecognitionList = new ((window as unknown) as WindowWithSpecchRecognition).webkitSpeechGrammarList();
+  const SpeechRecognition =
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+  const SpeechGrammarList =
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (window as any).SpeechGrammarList || (window as any).webkitSpeechGrammarList;
+
+  const recognition = new SpeechRecognition();
+  const speechRecognitionList = new SpeechGrammarList();
   speechRecognitionList.addFromString(
     `#JSGF V1.0; grammar words; public <word> = ${dict.join(' | ')} ;`,
     1,
@@ -32,8 +34,8 @@ export const recognize = (dict: string[], lang = 'es-ES'): Promise<string> => {
 
   return new Promise((acc, rej) => {
     let result = '';
-    recognition.addEventListener('result', (ev: SpeechRecognitionEvent) => {
-      console.log(ev.results[0][0].transcript);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    recognition.addEventListener('result', (ev: any) => {
       result = ev.results[0][0].transcript;
     });
 

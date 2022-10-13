@@ -1,18 +1,13 @@
 import classNames from 'classnames';
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 
-import { random } from '../utils/array';
+import IconButton from '../components/IconButton';
+import useAppState from '../hooks/useAppState';
 import { error, success } from '../utils/sounds';
 import { recognize } from '../utils/speech';
 
-import IconButton from './IconButton';
-
-interface ReadingProps {
-  items: string[];
-}
-
-const Reading = ({ items }: ReadingProps): JSX.Element => {
-  const [chosen, setChosen] = useState(random(items));
+const Reading = (): JSX.Element => {
+  const { items, chosen, chooseNext } = useAppState();
   const [listening, setListening] = useState(false);
 
   const onDictate = useCallback(async () => {
@@ -21,7 +16,7 @@ const Reading = ({ items }: ReadingProps): JSX.Element => {
       const result = await recognize(items);
       if (chosen.localeCompare(result, 'en', { sensitivity: 'base' }) === 0) {
         await success();
-        setChosen(random(items));
+        chooseNext();
       } else {
         await error();
       }
@@ -30,7 +25,7 @@ const Reading = ({ items }: ReadingProps): JSX.Element => {
     } finally {
       setListening(false);
     }
-  }, [items, chosen]);
+  }, [items, chosen, chooseNext]);
 
   return (
     <div className="reading">

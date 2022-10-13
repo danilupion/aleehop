@@ -1,7 +1,5 @@
-import React from 'react';
-
-import Item from './Item';
 import './Board.css';
+import Item from './Item';
 
 interface BoardProps {
   items: string[];

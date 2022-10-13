@@ -1,18 +1,19 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
-import './App.css';
-import Content from './components/Content';
-import Menu from './components/Menu';
+import Layout from './layouts/Layout';
+import Bingo from './pages/Bingo';
+import Dictation from './pages/Dictation';
+import Reading from './pages/Reading';
 
 function App(): JSX.Element {
   return (
-    <BrowserRouter>
-      <div className="app">
-        <Menu />
-        <Content />
-      </div>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="/bingo/:type/:challenge/:backwards" element={<Bingo />} />
+        <Route path="/dictation/:type/:challenge/:backwards" element={<Dictation />} />
+        <Route path="/reading/:type/:challenge/:backwards" element={<Reading />} />
+      </Route>
+    </Routes>
   );
 }
 
