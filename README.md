@@ -12,6 +12,10 @@ You will also see any lint errors in the console.
 
 ### `yarn test`
 
+Launches the test runner.\
+
+### `yarn test:watch`
+
 Launches the test runner in the interactive watch mode.\
 
 ### `yarn build`
@@ -29,3 +33,7 @@ Lints the codebase using ESLint.
 ### `yarn lint:fix`
 
 Lints the codebase using ESLint and fixes any errors.
+
+### `yarn prettify`
+
+Prettifies the codebase using Prettier.
