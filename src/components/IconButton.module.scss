@@ -8,5 +8,9 @@
   align-items: center;
   justify-content: center;
 
+  &.disabled {
+    @extend .is-disabled;
+  }
+
   font-size: 5em;
 }

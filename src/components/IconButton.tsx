@@ -12,7 +12,7 @@ interface IconButtonProps {
 const IconButton = ({ className, icon, onClick, disabled }: IconButtonProps): JSX.Element => {
   return (
     <button
-      className={classnames(className, styles.iconButton)}
+      className={classnames(className, styles.iconButton, { [styles.disabled]: disabled })}
       onClick={onClick}
       disabled={disabled}
     >

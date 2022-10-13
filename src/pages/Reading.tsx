@@ -35,7 +35,7 @@ const Reading = (): JSX.Element => {
     <div className={styles.reading}>
       <div className={styles.actions}>
         <IconButton
-          className={classNames(styles.main, { disabled: listening })}
+          className={classNames(styles.main, { [styles.disabled]: listening })}
           onClick={onDictate}
           icon="fas fa-microphone"
           disabled={listening}
