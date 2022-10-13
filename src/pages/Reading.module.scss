@@ -1,0 +1,17 @@
+@import "./common.scss";
+
+.reading {
+  @extend .section;
+
+  .toRead {
+    font-size: 3em;
+
+    &.uppercase {
+      text-transform: uppercase;
+    }
+
+    &.lowercase {
+      text-transform: lowercase;
+    }
+  }
+}

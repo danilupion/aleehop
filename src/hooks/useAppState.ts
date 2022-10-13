@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Type, getItems } from '../challenges';
 import { random } from '../utils/array';
 
-const useAppState = () => {
+const useAppState = (limit: number | undefined = undefined) => {
   const [items, setItems] = useState<string[]>([]);
   const [chosen, setChosen] = useState<string>(random(items));
 
@@ -22,10 +22,11 @@ const useAppState = () => {
       Number.parseInt(challenge || '0', 10),
       type as Type,
       backwards && JSON.parse(backwards),
+      limit,
     );
     setItems(items);
     setChosen(random(items));
-  }, [challenge, type, backwards]);
+  }, [challenge, type, backwards, limit]);
 
   return {
     items,

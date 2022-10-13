@@ -3,10 +3,14 @@ import { useCallback, useState } from 'react';
 
 import IconButton from '../components/IconButton';
 import useAppState from '../hooks/useAppState';
+import useSettings, { TextCase } from '../hooks/useSettings';
 import { error, success } from '../utils/sounds';
 import { recognize } from '../utils/speech';
 
+import styles from './Reading.module.scss';
+
 const Reading = (): JSX.Element => {
+  const { textCase } = useSettings();
   const { items, chosen, chooseNext } = useAppState();
   const [listening, setListening] = useState(false);
 
@@ -28,15 +32,22 @@ const Reading = (): JSX.Element => {
   }, [items, chosen, chooseNext]);
 
   return (
-    <div className="reading">
-      <div className="actions">
-        <div className="to-read">{chosen}</div>
+    <div className={styles.reading}>
+      <div className={styles.actions}>
         <IconButton
-          className={classNames('play', { disabled: listening })}
+          className={classNames(styles.main, { disabled: listening })}
           onClick={onDictate}
           icon="fas fa-microphone"
           disabled={listening}
         />
+      </div>
+      <div
+        className={classNames(
+          styles.toRead,
+          textCase === TextCase.Lowercase ? styles.lowercase : styles.uppercase,
+        )}
+      >
+        {chosen}
       </div>
     </div>
   );

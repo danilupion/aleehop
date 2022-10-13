@@ -2,10 +2,14 @@ import { ChangeEvent, FocusEvent, KeyboardEvent, useCallback, useState } from 'r
 
 import IconButton from '../components/IconButton';
 import useAppState from '../hooks/useAppState';
+import useSettings, { TextCase } from '../hooks/useSettings';
 import { error, success } from '../utils/sounds';
 import { say } from '../utils/speech';
 
+import styles from './Dictation.module.scss';
+
 const Dictation = (): JSX.Element => {
+  const { textCase } = useSettings();
   const { chosen, chooseNext } = useAppState();
   const [input, setInput] = useState('');
 
@@ -41,20 +45,21 @@ const Dictation = (): JSX.Element => {
   }, [chosen]);
 
   return (
-    <div className="dictation">
-      <div className="input">
+    <div className={styles.dictation}>
+      <div className={styles.actions}>
+        <IconButton className={styles.main} onClick={onSay} icon="fas fa-play" />
+        <IconButton icon="fas fa-check" onClick={onCheck} />
+      </div>
+      <div className={styles.input}>
         <input
+          className={textCase === TextCase.Lowercase ? styles.lowercase : styles.uppercase}
           type="text"
           value={input}
           tabIndex={0}
           onChange={onInputChange}
           onBlur={onBlur}
           onKeyUp={onKeyUp}
-        />{' '}
-        <IconButton className="check" icon="fas fa-question" onClick={onCheck} />
-      </div>
-      <div className="actions">
-        <IconButton className="play" onClick={onSay} icon="fas fa-play" />
+        />
       </div>
     </div>
   );

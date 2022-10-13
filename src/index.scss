@@ -1,107 +1,26 @@
+@use "~nes.css/css/nes";
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
-html,
-body,
-#root,
-.app {
+html, body {
+  overflow-x: hidden;
   height: 100%;
-  text-align: center;
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
-.menu-icon {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 3em;
-  z-index: 1;
-
-  &.active {
-    color: #ffffff !important;
+  &.noscroll{
+    position:fixed;
+    overflow:hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 }
 
-.menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #000000cc;
-  color: #ffffff;
-  font-size: 2em;
 
-  .menu-content {
-    overflow-y: scroll;
-  }
 
-  a {
-    text-decoration: none;
-    color: #aaaaaa;
-  }
-}
 
-.section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
 
-.dictation {
-  @extend .section;
-  .input {
-    display: flex;
-    justify-content: center;
-    input {
-      font-size: 3em;
-      width: 5em;
-      border: 0.1em solid black;
-      border-radius: 0.4em;
-      padding: 0.1em;
-    }
 
-    .check {
-      font-size: 5em;
-    }
-  }
-}
 
-.reading {
-  @extend .section;
 
-  .to-read {
-    font-size: 4em;
-  }
-}
-
-.bingo {
-  @extend .section;
-  max-width: 700px;
-  margin: auto;
-}
-
-.actions {
-  margin-top: 1em;
-  .play {
-    color: green;
-    font-size: 6em;
-  }
-  .disabled {
-    color: grey !important;
-  }
-}

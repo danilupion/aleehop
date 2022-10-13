@@ -1,4 +1,12 @@
+@import "~nes.css/css/nes";
+
 .iconButton {
-  border: 0;
-  background-color: transparent;
+  @extend .nes-btn;
+  display: flex;
+  width: 1.3em;
+  height: 1.3em;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 5em;
 }

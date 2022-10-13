@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useCallback } from 'react';
 
-import './Item.css';
+import styles from './Item.module.scss';
 
 interface ItemProps {
   className?: string;
@@ -14,7 +14,7 @@ const Item = ({ onClick, item, className }: ItemProps): JSX.Element => {
     onClick && onClick(item);
   }, [onClick, item]);
   return (
-    <div className={classNames('item', className)} onClick={doClick}>
+    <div className={classNames(styles.item, className)} onClick={doClick}>
       {item}
     </div>
   );

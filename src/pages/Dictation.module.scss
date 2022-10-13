@@ -1,0 +1,24 @@
+@import "~nes.css/css/nes";
+@import "./common.scss";
+
+.dictation {
+  @extend .section;
+  .input {
+    display: flex;
+    justify-content: center;
+    input {
+      @extend .nes-input;
+      font-size: 2.5em;
+      width: 7em;
+
+      &.uppercase {
+        text-transform: uppercase;
+      }
+
+      &.lowercase {
+        text-transform: lowercase;
+      }
+    }
+
+  }
+}

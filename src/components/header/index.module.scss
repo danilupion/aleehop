@@ -1,0 +1,75 @@
+@import "~nes.css/css/nes";
+
+.container {
+  margin-bottom: 80px;
+
+  .header {
+    position: fixed;
+    left:0;
+    right:0;
+    top: 0;
+    background-color: white;
+    border-bottom: 5px solid black;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    z-index: 3;
+
+    button {
+      @extend .nes-btn;
+
+      img {
+        width: 32px;
+      }
+
+      &:disabled {
+        @extend .is-disabled;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #F03030;
+
+      &:hover {
+        text-decoration: none;
+        color: #F03030;
+      }
+    }
+
+    h1 {
+      margin-bottom: 0;
+
+      a {
+        display: flex;
+        img {
+          width: 48px;
+        }
+
+        span {
+          @media (max-width: 700px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .menuCard {
+    @extend .nes-container;
+    @extend .with-title;
+    margin-bottom: 10px;
+
+    .title {
+      @extend .title
+    }
+
+    .menuLink {
+      @extend .nes-btn;
+      margin: 10px;
+      width: 100%;
+    }
+  }
+}
