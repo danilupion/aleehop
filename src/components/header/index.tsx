@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import challenges from '../../challenges';
 
-import book from './book.svg';
+import book from './book.png';
 import close from './close.svg';
 import gear from './gear.svg';
 import styles from './index.module.scss';

@@ -1,8 +1,9 @@
 import { shuffle } from 'lodash';
 
 import challenge1 from '../challenges/1.json';
+import challenge2 from '../challenges/2.json';
 
-const challenges = [challenge1];
+const challenges = [challenge1, challenge2];
 
 export enum Type {
   Syllable = 'syllable',
