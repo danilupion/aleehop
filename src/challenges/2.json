@@ -30,9 +30,5 @@
     "RITA",
     "PATO"
   ],
-  "phrases": [
-    "TATI TOMA PALOMITAS",
-    "TOMÁS ES ALTO",
-    "EL SAPO TOMA TOMATE"
-  ]
+  "phrases": ["TATI TOMA PALOMITAS", "TOMÁS ES ALTO", "EL SAPO TOMA TOMATE"]
 }
