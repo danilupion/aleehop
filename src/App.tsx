@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { SettingsContext, TextCase } from './hooks/useSettings';
 import Layout from './layouts/Layout';
@@ -26,6 +26,7 @@ function App(): JSX.Element {
           <Route path="/bingo/:type/:challenge/:backwards" element={<Bingo />} />
           <Route path="/dictation/:type/:challenge/:backwards" element={<Dictation />} />
           <Route path="/reading/:type/:challenge/:backwards" element={<Reading />} />
+          <Route path="*" element={<Navigate replace={true} to={'/'} />} />
         </Route>
       </Routes>
     </SettingsContext.Provider>

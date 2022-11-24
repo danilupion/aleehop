@@ -13,7 +13,7 @@ const Dictation = (): JSX.Element => {
   const { chosen, chooseNext } = useAppState();
   const [input, setInput] = useState('');
 
-  const onInputChange = useCallback((ev: ChangeEvent<HTMLInputElement>) => {
+  const onInputChange = useCallback((ev: ChangeEvent<HTMLTextAreaElement>) => {
     setInput(ev.target.value.toUpperCase());
   }, []);
 
@@ -36,7 +36,7 @@ const Dictation = (): JSX.Element => {
     [onCheck],
   );
 
-  const onBlur = useCallback((ev: FocusEvent<HTMLInputElement>) => {
+  const onBlur = useCallback((ev: FocusEvent<HTMLTextAreaElement>) => {
     ev.target.focus();
   }, []);
 
@@ -51,9 +51,8 @@ const Dictation = (): JSX.Element => {
         <IconButton icon="fas fa-check" onClick={onCheck} />
       </div>
       <div className={styles.input}>
-        <input
+        <textarea
           className={textCase === TextCase.Lowercase ? styles.lowercase : styles.uppercase}
-          type="text"
           value={input}
           tabIndex={0}
           onChange={onInputChange}

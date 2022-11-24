@@ -1,15 +1,16 @@
-@import "~nes.css/css/nes";
-@import "./common.scss";
+@import '~nes.css/css/nes';
+@import './common.scss';
 
 .dictation {
   @extend .section;
   .input {
     display: flex;
     justify-content: center;
-    input {
-      @extend .nes-input;
+    textarea {
+      @extend .nes-textarea;
       font-size: 2.5em;
-      width: 7em;
+      max-width: 80%;
+      width: 20em;
 
       &.uppercase {
         text-transform: uppercase;
@@ -19,6 +20,5 @@
         text-transform: lowercase;
       }
     }
-
   }
 }
