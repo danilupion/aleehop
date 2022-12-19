@@ -1,0 +1,26 @@
+{
+  "syllables": ["CA", "CE", "CI", "CO", "CU", "QUE", "QUI"],
+  "words": [
+    "CAMINO",
+    "ESCOBA",
+    "COMETA",
+    "CINCO",
+    "COCINA",
+    "ESQUINA",
+    "ESQUELETO",
+    "QUIQUE",
+    "PARQUE",
+    "RAQUETA",
+    "QUIMICO",
+    "QUINCE",
+    "QUESO"
+  ],
+  "phrases": [
+    "EL ESTANQUE ESTÁ AQUÍ",
+    "LA MÁQUINA ESTÁ ROTA",
+    "EL MOSQUITO VUELA ALTO",
+    "EL PAQUETE ES DE COLOR CELESTE",
+    "EL ESQUELETO ES PEQUEÑO",
+    "EL EQUIPO DE FÚTBOL HA PERDIDO"
+  ]
+}

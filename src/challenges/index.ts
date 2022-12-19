@@ -7,6 +7,8 @@ import challenge4 from '../challenges/4.json';
 import challenge5 from '../challenges/5.json';
 import challenge6 from '../challenges/6.json';
 import challenge7 from '../challenges/7.json';
+import challenge8 from '../challenges/8.json';
+import challenge9 from '../challenges/9.json';
 
 const challenges = [
   challenge1,
@@ -16,6 +18,8 @@ const challenges = [
   challenge5,
   challenge6,
   challenge7,
+  challenge8,
+  challenge9,
 ];
 
 export enum Type {
