@@ -3,6 +3,7 @@ import { shuffle } from 'lodash';
 import challenge1 from '../challenges/1.json';
 import challenge10 from '../challenges/10.json';
 import challenge11 from '../challenges/11.json';
+import challenge12 from '../challenges/12.json';
 import challenge2 from '../challenges/2.json';
 import challenge3 from '../challenges/3.json';
 import challenge4 from '../challenges/4.json';
@@ -24,6 +25,7 @@ const challenges = [
   challenge9,
   challenge10,
   challenge11,
+  challenge12,
 ];
 
 export enum Type {
