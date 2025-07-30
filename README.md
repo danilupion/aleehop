@@ -37,3 +37,56 @@ Lints the codebase using ESLint and fixes any errors.
 ### `yarn prettify`
 
 Prettifies the codebase using Prettier.
+
+## Cloud
+
+### Docker
+
+#### Image creation
+
+```bash
+docker build -t aleehop/web -f Dockerfile  .
+```
+
+#### Debugging the images
+
+```bash
+docker container run -it --rm aleehop/web /bin/sh
+```
+
+### Helm
+
+#### Installing
+
+```bash
+helm install -n aleehop --create-namespace aleehop ./helm-chart
+```
+
+#### Uninstalling
+
+```bash
+helm uninstall -n aleehop aleehop
+```
+
+
+### Helmfile
+
+Our setup works with environments, so assuming you created a values.yaml in the following path:
+
+```
+environments
+  local
+    values.yaml
+```
+
+#### Installation
+
+```bash
+helmfile apply -e local
+```
+
+#### Uninstalling
+
+```bash
+helmfile destroy -e local
+```

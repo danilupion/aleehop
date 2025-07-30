@@ -1,0 +1,12 @@
+environments:
+  {{ .Environment.Name }}:
+    values:
+      - environments/{{ .Environment.Name }}/values.yaml
+
+---
+releases:
+  - name: aleehop-web
+    namespace: aleehop
+    chart: ./helm-chart
+    values:
+      - {{ toYaml .Values | nindent 8 }}
